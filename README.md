@@ -1,9 +1,13 @@
 # BKlug.Extensions.Caching.PostgreSql
 
-[![NuGet](https://img.shields.io/nuget/v/BKlug.Extensions.Caching.PostgreSql.svg)](https://www.nuget.org/packages/BKlug.Extensions.Caching.PostgreSql)
 [![Build & Test](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/ci.yml/badge.svg)](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/BKlug.Extensions.Caching.PostgreSql.svg)](https://www.nuget.org/packages/BKlug.Extensions.Caching.PostgreSql)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> **Supported .NET versions:**
+> - .NET 6.0
+> - .NET 8.0
+> - .NET 9.0
 
 High-performance distributed cache for .NET using PostgreSQL with UNLOGGED tables and [pg_cron](https://github.com/citusdata/pg_cron).
 
@@ -412,10 +416,10 @@ This library includes enhanced extension methods for `IDistributedCache` that pr
 - Use UNLOGGED tables for maximum performance, but be aware that data may be lost in a server crash
 
 ## License
-MIT
+See [LICENSE](LICENSE)
 
 ## Contributing
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+See [CONTRIBUTING](CONTRIBUTING.md)
 
 ## For Contributors and Maintainers
 
