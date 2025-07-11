@@ -68,11 +68,3 @@ jobs:
         dotnet nuget push "./artifacts/*.nupkg" --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
         dotnet nuget push "./artifacts/*.snupkg" --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
         echo "Packages published successfully!"
-
-    - name: Create/Update version tag
-      run: |
-        echo "Updating version tags..."
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git tag -f "v${VERSION}"
-        git push origin "v${VERSION}" --force
