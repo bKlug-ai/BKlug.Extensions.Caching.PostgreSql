@@ -21,7 +21,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void Get_Generic_ReturnsDeserializedValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var serializedValue = JsonSerializer.SerializeToUtf8Bytes(value);
             _cache.Set(key, serializedValue);
@@ -52,7 +52,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public async Task GetAsync_Generic_ReturnsDeserializedValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var serializedValue = JsonSerializer.SerializeToUtf8Bytes(value);
             await _cache.SetAsync(key, serializedValue);
@@ -83,7 +83,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void TryGetValue_Generic_ReturnsTrueAndValue_WhenKeyExists()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var serializedValue = JsonSerializer.SerializeToUtf8Bytes(value);
             _cache.Set(key, serializedValue);
@@ -116,7 +116,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public async Task TryGetValueAsync_Generic_ReturnsTrueAndValue_WhenKeyExists()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var serializedValue = JsonSerializer.SerializeToUtf8Bytes(value);
             await _cache.SetAsync(key, serializedValue);
@@ -149,7 +149,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void Set_Generic_SerializesAndStoresValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
 
             // Act
@@ -170,7 +170,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void Set_Generic_WithAbsoluteExpiration_SerializesAndStoresValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var expiration = DateTimeOffset.UtcNow.AddMinutes(5);
 
@@ -192,7 +192,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void Set_Generic_WithRelativeExpiration_SerializesAndStoresValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var expiration = TimeSpan.FromMinutes(5);
 
@@ -214,7 +214,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void Set_Generic_WithOptions_SerializesAndStoresValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var options = new DistributedCacheEntryOptions
             {
@@ -239,7 +239,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public async Task SetAsync_Generic_SerializesAndStoresValue()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
 
             // Act
@@ -260,7 +260,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public void GetOrCreate_ReturnsExistingValue_WhenKeyExists()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var serializedValue = JsonSerializer.SerializeToUtf8Bytes(value);
             _cache.Set(key, serializedValue);
@@ -313,7 +313,7 @@ namespace BKlug.Extensions.Caching.PostgreSql.Tests
         public async Task GetOrCreateAsync_ReturnsExistingValue_WhenKeyExists()
         {
             // Arrange
-            var key = "test-key";
+            var key = Guid.NewGuid().ToString();
             var value = new TestClass { Id = 1, Name = "Test" };
             var serializedValue = JsonSerializer.SerializeToUtf8Bytes(value);
             await _cache.SetAsync(key, serializedValue);
