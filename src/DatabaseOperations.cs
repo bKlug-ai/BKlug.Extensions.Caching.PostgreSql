@@ -43,7 +43,7 @@ internal sealed class DatabaseOperations : IDatabaseOperations
         // Use optimized connection factory with pooling settings
         ConnectionFactory = cacheOptions.DataSourceFactory != null
             ? () => cacheOptions.DataSourceFactory.Invoke().CreateConnection()
-            : new Func<NpgsqlConnection>(() => new NpgsqlConnection(cacheOptions.GetConnectionStringWithPooling() ?? cacheOptions.ConnectionString));
+            : new Func<NpgsqlConnection>(() => new NpgsqlConnection(cacheOptions.GetConnectionStringWithPooling()));
 
         _commandTimeout = cacheOptions.CommandTimeout;
         SystemClock = cacheOptions.SystemClock;

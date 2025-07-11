@@ -6,7 +6,6 @@ internal record ItemIdUtcNow
 {
     public string Id { get; internal set; }
 
-    // Not needed anymore as we use NOW() in SQL directly
     public DateTimeOffset UtcNow { get; internal set; }
 };
 

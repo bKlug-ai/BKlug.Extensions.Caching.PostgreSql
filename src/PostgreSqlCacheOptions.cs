@@ -99,7 +99,7 @@ public class PostgreSqlCacheOptions : IOptions<PostgreSqlCacheOptions>
     {
         if (string.IsNullOrEmpty(ConnectionString))
         {
-            return null;
+            throw new InvalidOperationException("ConnectionString cannot be null or empty.");
         }
 
         var builder = new NpgsqlConnectionStringBuilder(ConnectionString)
