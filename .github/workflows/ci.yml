@@ -47,12 +47,12 @@ jobs:
       - name: Pack
         run: dotnet pack --no-build --configuration Release --output ./artifacts
       - name: Upload NuGet packages
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nuget-packages
           path: ./artifacts/*.nupkg
       - name: Upload symbol packages
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: symbol-packages
           path: ./artifacts/*.snupkg
