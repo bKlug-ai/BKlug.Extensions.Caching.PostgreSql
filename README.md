@@ -3,12 +3,12 @@
 [![Build & Test](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/ci.yml/badge.svg)](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/ci.yml)
 [![Create Release Draft](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/draft-release.yml/badge.svg)](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/draft-release.yml)
 [![Release](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/release.yml/badge.svg)](https://github.com/bKlug-ai/BKlug.Extensions.Caching.PostgreSql/actions/workflows/release.yml)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/BKlug.Extensions.Caching.PostgreSql.svg)](https://www.nuget.org/packages/BKlug.Extensions.Caching.PostgreSql)
 [![NuGet Version](https://img.shields.io/nuget/v/BKlug.Extensions.Caching.PostgreSql.svg)](https://www.nuget.org/packages/BKlug.Extensions.Caching.PostgreSql)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/BKlug.Extensions.Caching.PostgreSql.svg)](https://www.nuget.org/packages/BKlug.Extensions.Caching.PostgreSql)
 [![.NET 6.0](https://img.shields.io/badge/.NET-6.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 [![.NET 8.0](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 [![.NET 9.0](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **Supported .NET versions:**
 > - .NET 6.0
