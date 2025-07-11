@@ -1,0 +1,66 @@
+name: Create Release Draft
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            6.0.x
+            8.0.x
+            9.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release /p:Version=${VERSION}
+
+      - name: Test
+        env:
+          PGCACHE_TEST_DB: cache_test
+          PGCACHE_TEST_USER: postgres
+          PGCACHE_TEST_PASS: postgres
+          PGCACHE_TEST_HOST: localhost
+          PGCACHE_TEST_PORT: 5432
+          PGCACHE_TEST_TABLE: cache_items_test
+        run: dotnet test --no-build --configuration Release --verbosity normal
+        
+      - name: Pack
+        run: dotnet pack --no-build --configuration Release /p:Version=${VERSION} --output ./artifacts
+
+      - name: Generate Release Notes
+        id: release_notes
+        run: |
+          echo "## BKlug.Extensions.Caching.PostgreSql ${VERSION}" > release_notes.md
+          echo "" >> release_notes.md
+          echo "### Changes" >> release_notes.md
+          git log --pretty=format:"* %s (%h)" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+          echo "" >> release_notes.md
+
+      - name: Create Release Draft
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          body_path: release_notes.md
+          files: |
+            ./artifacts/*.nupkg
+            ./artifacts/*.snupkg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

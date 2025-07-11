@@ -1,0 +1,58 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: cache_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            6.0.x
+            8.0.x
+            9.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+      - name: Test
+        env:
+          PGCACHE_TEST_DB: cache_test
+          PGCACHE_TEST_USER: postgres
+          PGCACHE_TEST_PASS: postgres
+          PGCACHE_TEST_HOST: localhost
+          PGCACHE_TEST_PORT: 5432
+          PGCACHE_TEST_TABLE: cache_items_test
+        run: dotnet test --no-build --configuration Release --verbosity normal
+      - name: Pack
+        run: dotnet pack --no-build --configuration Release --output ./artifacts
+      - name: Upload NuGet packages
+        uses: actions/upload-artifact@v3
+        with:
+          name: nuget-packages
+          path: ./artifacts/*.nupkg
+      - name: Upload symbol packages
+        uses: actions/upload-artifact@v3
+        with:
+          name: symbol-packages
+          path: ./artifacts/*.snupkg
