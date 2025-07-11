@@ -4,7 +4,7 @@ This project contains integration tests for the PostgreSQL distributed cache lib
 
 ## Prerequisites
 - Docker or a local PostgreSQL instance
-- .NET 8 SDK or higher
+- .NET 6 SDK or higher
 - The [pg_cron](https://github.com/citusdata/pg_cron) extension must be installed in the test database
   - The official `postgres:15` or higher image already includes pg_cron by default
 
@@ -22,10 +22,12 @@ The test database will be created automatically if it doesn't exist.
 ## Running the tests
 ### Windows
 ```powershell
+cd scripts
 ./run-db-tests.ps1
 ```
 ### Linux/macOS
 ```sh
+cd scripts
 chmod +x run-db-tests.sh
 ./run-db-tests.sh
 ```
