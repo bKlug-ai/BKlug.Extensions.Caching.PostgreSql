@@ -1,0 +1,76 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of our package are you using?
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: dotnet-version
+    attributes:
+      label: .NET Version
+      description: What version of .NET are you using?
+      options:
+        - .NET 6.0
+        - .NET 7.0
+        - .NET 8.0
+        - .NET 9.0
+        - Other (please specify in description)
+    validations:
+      required: true
+  - type: dropdown
+    id: postgres-version
+    attributes:
+      label: PostgreSQL Version
+      description: What version of PostgreSQL are you using?
+      options:
+        - PostgreSQL 13
+        - PostgreSQL 14
+        - PostgreSQL 15
+        - PostgreSQL 16
+        - Other (please specify in description)
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Configure the cache with...
+        2. Call method X with parameters...
+        3. Observe error...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com/codeofconduct)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

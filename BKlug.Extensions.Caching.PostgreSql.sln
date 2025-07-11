@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BKlug.Extensions.Caching.PostgreSql", "src\BKlug.Extensions.Caching.PostgreSql.csproj", "{ACE8989E-661C-6492-0ED2-57BEF80CAFC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BKlug.Extensions.Caching.PostgreSql.Tests", "test\BKlug.Extensions.Caching.PostgreSql.Tests.csproj", "{2DA5BF13-CFAD-8498-EDBD-1976EA0856BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACE8989E-661C-6492-0ED2-57BEF80CAFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE8989E-661C-6492-0ED2-57BEF80CAFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE8989E-661C-6492-0ED2-57BEF80CAFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE8989E-661C-6492-0ED2-57BEF80CAFC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA5BF13-CFAD-8498-EDBD-1976EA0856BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA5BF13-CFAD-8498-EDBD-1976EA0856BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA5BF13-CFAD-8498-EDBD-1976EA0856BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA5BF13-CFAD-8498-EDBD-1976EA0856BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06D49A32-161E-4983-B93A-EC5E65C9D3ED}
+	EndGlobalSection
+EndGlobal
